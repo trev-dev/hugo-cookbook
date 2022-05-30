@@ -1,0 +1,6 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="keywords" content="cooking, recipe, chef, kitchen, food" />
+
+<link href='{{ "css/simple.min.css" | relURL }}' rel="stylesheet"/>
+{{ $custom_css := resources.Get "cookbook.css" | resources.Minify -}}
+<link href="{{ $custom_css.Permalink }}" rel="stylesheet"/>

@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div id="content">
+  {{ .Content}}
+</div>
+<div id="recent-posts">
+  <h1>Recently Posted</h1>
+  <ul>
+    {{ range first 5 .Site.RegularPages }}
+    <li><a href="{{ .Permalink }}">{{ .Lastmod.Format "Jan 2, 2006" }}: {{ .LinkTitle }}</a></li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

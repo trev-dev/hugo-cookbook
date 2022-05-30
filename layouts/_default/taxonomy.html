@@ -1,0 +1,14 @@
+{{ define "main" }}
+<main>
+  <div>
+    <h1>{{ .Data.Singular | title }}: {{ .Title }}</h1>
+    <ol>
+      {{ range .Pages.ByTitle }}
+      <li>
+        <a href="{{.Permalink}}">{{.Title}}</a>
+      </li>
+      {{ end }}
+    </ol>
+  </div>
+</main>
+{{ end }}

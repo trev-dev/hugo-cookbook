@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div id="content">
+  {{ .Content }}
+  <h1>{{ .Title }}</h1>
+  {{ range $tax_name, $tax_data := .Site.Taxonomies.categories }}
+  <div class="category">
+    <p>{{ $tax_name | title }}</p>
+    <ol>
+      {{ range $tax_data.Pages.ByTitle }}
+      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+      {{ end }}
+    </ol>
+  </div>
+  {{ end }}
+</div>
+{{ end }}
