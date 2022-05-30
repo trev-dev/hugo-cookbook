@@ -66,5 +66,5 @@ header .taxonomy-list li {
 }
 
 #params li:not(:last-child):after {
-  content: " |"
+  content: " | "
 }
