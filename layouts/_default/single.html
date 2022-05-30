@@ -5,14 +5,14 @@
 <h1>{{ .Title }}</h1>
 <div id="params">
   <ul class="contributor">
-    {{- if .Params.author -}}
-    <li>Contributed By: <b>{{- delimit .Params.author " & " }}</b> | </li>
-    {{ end -}}
-    {{- if .Params.lastmod -}}
-    <li>Last Updated: {{- .Lastmod.Format "Jan 2, 2006" -}}</li>
-    {{- end -}}
+    {{ if .Params.author }}
+    <li>Contributed By: <b>{{ delimit .Params.author " & " }}</b></li>
+    {{ end }}
+    {{ if .Params.lastmod }}
+    <li>Last Updated: {{ .Lastmod.Format "Jan 2, 2006" }}</li>
+    {{ end }}
   </ul>
-  {{- if $.Param "source-url" -}}
+  {{ if $.Param "source-url" }}
   <ul class="source">
     <li>
       Source: <a href='{{ $.Param "source-url" }}' target="_blank">
@@ -20,12 +20,12 @@
       </a>
     </li>
   </ul>
-  {{- end -}}
+  {{ end }}
   <div id="meta">
     <ul>
-      <li>prep: {{ $.Param "prep-time" }} | </li>
-      <li>cook: {{ $.Param "cook-time" }} | </li>
-      <li>ready: {{ $.Param "ready-in" }} | </li>
+      <li>prep: {{ $.Param "prep-time" }}</li>
+      <li>cook: {{ $.Param "cook-time" }}</li>
+      <li>ready: {{ $.Param "ready-in" }}</li>
       <li>servings: {{ $.Param "servings" }}</li>
     </ul>
   </div>

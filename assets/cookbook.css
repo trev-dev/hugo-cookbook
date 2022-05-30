@@ -63,4 +63,14 @@ header .taxonomy-list li {
 
 #params li, #meta li {
   display: inline-block;
+  line-height: 0.9rem;
+}
+
+#params li:not(:first-child) {
+  padding-left: 0.25rem;
+}
+
+#params li:not(:last-child) {
+  border-right: 2px solid var(--border);
+  padding-right: 0.25rem;
 }
