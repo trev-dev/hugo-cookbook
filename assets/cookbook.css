@@ -64,7 +64,3 @@ header .taxonomy-list li {
 #params li, #meta li {
   display: inline-block;
 }
-
-#params li:not(:last-child):after {
-  content: " | "
-}
