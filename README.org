@@ -1,0 +1,4 @@
+* Hugo Cookbook
+A dead simple Hugo theme that is intended for creating an online cookbook with.
+
+Styles are bootstrapped by [[https://simplecss.org/][Simple CSS]].
