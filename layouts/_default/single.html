@@ -9,7 +9,7 @@
     {{ $updated := .Lastmod.Format "Jan 2, 2006"}}
     <li>Contributed By: <b>{{ delimit .Params.author " & " }}</b> on {{ $date }}</li>
     {{ if (ne $date $updated)}}
-    <li>{{ $updated }}</li>
+    <li>Updated: {{ $updated }}</li>
     {{ end }}
   </ul>
   {{ if $.Param "source-url" }}
