@@ -5,10 +5,11 @@
 <h1>{{ .Title }}</h1>
 <div id="params">
   <ul class="contributor">
-    <li>Contributed By: <b>{{ delimit .Params.author " & " }}</b></li>
-    <li>Date: {{ .Date.Format "Jan 2, 2006" }}</li>
-    {{ if .Params.lastmod }}
-    <li>Last Updated: {{ .Lastmod.Format "Jan 2, 2006" }}</li>
+    {{ $date := .Date.Format "Jan 2, 2006" }}
+    {{ $updated := .Lastmod.Format "Jan 2, 2006"}}
+    <li>Contributed By: <b>{{ delimit .Params.author " & " }}</b> on {{ $date }}</li>
+    {{ if (ne $date $updated)}}
+    <li>{{ $updated }}</li>
     {{ end }}
   </ul>
   {{ if $.Param "source-url" }}
