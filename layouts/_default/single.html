@@ -1,0 +1,34 @@
+{{ define "site_title" }}
+{{ .Site.Title }} - {{ .Title }}
+{{ end }}
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+<div id="params">
+  <ul class="contributor">
+    {{ $date := .Date.Format "Jan 2, 2006" }}
+    {{ $updated := .Lastmod.Format "Jan 2, 2006"}}
+    <li>Contributed By: <b>{{ delimit .Params.author " & " }}</b> on {{ $date }}</li>
+    {{ if (ne $date $updated)}}
+    <li>Updated: {{ $updated }}</li>
+    {{ end }}
+  </ul>
+  {{ if $.Param "source-url" }}
+  <ul class="source">
+    <li>
+      Source: <a href='{{ $.Param "source-url" }}' target="_blank">
+      {{ $.Param "source-url" }}
+      </a>
+    </li>
+  </ul>
+  {{ end }}
+  <div id="meta">
+    <ul>
+      <li>prep: {{ $.Param "prep-time" }}</li>
+      <li>cook: {{ $.Param "cook-time" }}</li>
+      <li>ready: {{ $.Param "ready-in" }}</li>
+      <li>servings: {{ $.Param "servings" }}</li>
+    </ul>
+  </div>
+</div>
+{{ .Content }}
+{{ end }}

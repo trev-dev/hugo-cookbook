@@ -1,0 +1,24 @@
+{{ define "site_title" }}
+{{ .Site.Title }} - {{ .Title }} recipes
+{{ end }}
+{{ define "main" }}
+<main>
+  <div class="recipe-list">
+    <h1>{{ .Data.Singular | title }}: {{ .Title }}</h1>
+    <ol>
+      {{ range .Pages.ByTitle }}
+      <li>
+        <div class="flex justify-between align-center">
+        <a href="{{.Permalink}}">{{.Title}}</a>
+        <span class="tags">
+          {{ range .Params.tags }}
+          <a href='{{ "tags" | relURL }}/{{ . | urlize }}'>#{{ . }}</a>
+          {{ end }}
+        </span>
+        </div>
+      </li>
+      {{ end }}
+    </ol>
+  </div>
+</main>
+{{ end }}

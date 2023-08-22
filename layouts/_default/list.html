@@ -1,0 +1,28 @@
+{{ define "site_title" }}
+{{ .Site.Title }} - {{ .Title }}
+{{ end }}
+{{ define "main" }}
+<div id="content">
+  {{ .Content }}
+  <h1>{{ .Title }}</h1>
+  {{ range $tax_name, $tax_data := .Site.Taxonomies.categories }}
+  <div class="recipe-list">
+    <p>{{ $tax_name | title }}</p>
+    <ol>
+      {{ range $tax_data.Pages.ByTitle }}
+      <li>
+        <div class="flex justify-between align-center">
+        <a href="{{.Permalink}}">{{.Title}}</a>
+        <span class="tags">
+          {{ range .Params.tags }}
+          <a href='{{ "tags" | relURL }}/{{ . | urlize }}'>#{{ . }}</a>
+          {{ end }}
+        </span>
+        </div>
+      </li>
+      {{ end }}
+    </ol>
+  </div>
+  {{ end }}
+</div>
+{{ end }}

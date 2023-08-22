@@ -1,0 +1,21 @@
+<header>
+  <p class="site-title"><a href="{{ .Site.BaseURL }}" title="Go home">{{ .Site.Title }}</a></p>
+  <p>A collection of useful recipes made or found, contributed by people I know.</p>
+  <div class="taxonomy-list">
+    <p>Categories</p>
+    <nav>
+      <a href='{{ "recipe" | relURL }}'>all</a>
+      {{ range $name, $tax := .Site.Taxonomies.categories }}
+      <a href='{{ "categories" | relURL }}/{{ $name | urlize }}'>{{$name}}</a>
+      {{ end }}
+    </nav>
+  </div>
+  <div class="taxonomy-list">
+    <p>Tags</p>
+    <nav>
+      {{ range $name, $tax := .Site.Taxonomies.tags }}
+      <a href='{{ "tags" | relURL }}/{{ $name | urlize }}'>{{$name}}</a>
+      {{ end }}
+    </nav>
+  </div>
+</header>
